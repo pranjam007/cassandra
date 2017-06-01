@@ -1,0 +1,47 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'com.jfrog.artifactory' version '4.4.0'
+}
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'com.arqiva.keep2cassandra-prototype'
+    version =  '1.0-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        credentials {
+            username "pranjal.mathur"
+            password "AP7AFgpU86asGzxrdGzJXobkHnz"
+        }
+        url 'http://cdp-repo.arqiva.local:8081/artifactory/repo'
+    }
+    maven {url 'https://m2.neo4j.org/content/repositories/'}
+
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter")
+    //compile("org.springframework.data:spring-data-cassandra")
+    compile("com.datastax.cassandra:cassandra-driver-core:3.1.0")
+    compile("com.datastax.cassandra:cassandra-driver-extras:3.1.0")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile("org.hibernate:hibernate-validator")
+    compile("io.netty:netty-all:4.0.33.Final")
+}

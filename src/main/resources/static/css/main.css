@@ -1,0 +1,9 @@
+#wrapperHeader {
+    width:100%;
+    height: 100px;
+    background: url(../images/jira-logo-scaled.gif) no-repeat;
+}
+
+#body {
+    border: dotted aqua;
+}

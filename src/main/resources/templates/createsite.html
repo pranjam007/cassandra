@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>$Title$</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+</head>
+<body>
+<div id = "wrapperHeader"/>
+<div th:if="${sites}" id="body">
+<table>
+    <tr>
+        <th>
+            <h3>Site Id</h3>
+        </th>
+        <th>
+            <h3>Tenant Name</h3>
+        </th>
+    </tr>
+    <tr th:each="site: ${sites}">
+        <td style="border: groove" th:text="${site.id}"></td>
+        <td style="border: groove" th:text="${site.tenantName}"></td>
+    </tr>
+</table>
+</div>
+</body>
+</html>
